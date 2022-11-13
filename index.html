@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>3D Globe</title>
+    <link rel="icon" href="./resources/favicon.png" />
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="resources/main.css" />
+    <script src="resources/angular.min.js"></script>
+  </head>
+  <body ng-app="myApp">
+    <div ng-controller="globeGL" id="container">
+      <div id="info">
+        <!-- <div class="info-selected" title="{{globeGL.selectedDescription}}">{{globeGL.selectedTexture}}</div> <span class="bull">&bull;</span>
+        <a href="https://neo.sci.gsfc.nasa.gov/">NASA Earth Obervations</a>  -->
+      </div>
+
+      <div class="texture-container">
+        <div class="texture-container__items">
+          <div
+            class="texture-container__items__item"
+            ng-style="{'background-color': texture.name === globeGL.selectedTexture ? '#0f70f073' : 'transparent'}"
+            ng-repeat="texture in globeGL.textures"
+            ng-click="globeGL.changeTexture(texture)"
+          >
+            <img ng-src="{{texture.icon}}" alt="{{texture.name}} logo" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script type="text/javascript" src="third-party/Detector.js"></script>
+    <script type="text/javascript" src="third-party/three.min.js"></script>
+    <script type="text/javascript" src="third-party/Tween.js"></script>
+    <script type="text/javascript" src="js/globe.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+  </body>
+</html>
